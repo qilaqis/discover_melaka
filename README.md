@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # flutter_codelab
 
 A new Flutter project.
@@ -14,3 +15,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# discover_melaka
+Project ICT602
+>>>>>>> facb63daf3dc6003ac80a4fdd16a4ab22138013b

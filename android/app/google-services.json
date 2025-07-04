@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1085412120207",
+    "project_id": "discover-melaka-event",
+    "storage_bucket": "discover-melaka-event.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1085412120207:android:ad02cc8218429e670c82fa",
+        "android_client_info": {
+          "package_name": "com.example.gtk_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBb4xUnmYaA83je6fY4cPrngnhulgcRvrE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

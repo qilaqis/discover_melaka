@@ -66,12 +66,14 @@ class _SignUpPageState extends State<SignUpPage> {
 
       // Use merge: true to avoid overwriting existing data
       await _firestore.collection('users').doc(user.uid).set(userData, SetOptions(merge: true));
+
       debugPrint('✅ User data saved successfully to Firestore');
       return true;
     } catch (e) {
       debugPrint('=== FIRESTORE SAVE ERROR ===');
       debugPrint('Error: $e');
       debugPrint('Error type: ${e.runtimeType}');
+
       if (mounted) {
         _showErrorSnackBar('Failed to save user data: ${e.toString()}');
       }
@@ -131,7 +133,6 @@ class _SignUpPageState extends State<SignUpPage> {
 
       // Save user data to Firestore
       bool dataSaved = await _saveUserToFirestore(userCredential.user!, name);
-
       if (!dataSaved) {
         debugPrint('⚠ WARNING: User data was not saved to Firestore');
         // Don't return here, still navigate to success
@@ -139,14 +140,12 @@ class _SignUpPageState extends State<SignUpPage> {
 
       if (mounted) {
         _showSuccessSnackBar('Account created successfully!');
-
         // Navigate directly to dashboard after successful registration
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (_) => const DashboardPage()),
         );
       }
-
     } on FirebaseAuthException catch (e) {
       debugPrint('=== FIREBASE AUTH ERROR ===');
       debugPrint('Error code: ${e.code}');
@@ -242,7 +241,6 @@ class _SignUpPageState extends State<SignUpPage> {
           MaterialPageRoute(builder: (_) => const DashboardPage()),
         );
       }
-
     } catch (e) {
       debugPrint('=== GOOGLE SIGN UP ERROR ===');
       debugPrint('Error: $e');
@@ -324,7 +322,6 @@ class _SignUpPageState extends State<SignUpPage> {
           MaterialPageRoute(builder: (_) => const DashboardPage()),
         );
       }
-
     } catch (e) {
       debugPrint('=== APPLE SIGN UP ERROR ===');
       debugPrint('Error: $e');
@@ -447,6 +444,7 @@ class _SignUpPageState extends State<SignUpPage> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const SizedBox(height: 40),
+
                 // App Logo/Icon
                 const Icon(
                   Icons.location_city,
@@ -454,6 +452,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   color: Colors.deepOrange,
                 ),
                 const SizedBox(height: 24),
+
                 // Welcome Text
                 const Text(
                   'Create Account',
@@ -474,6 +473,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 40),
+
                 // Error Message Display
                 if (_errorMessage != null)
                   Container(
@@ -492,6 +492,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                     ),
                   ),
+
                 // Name Field
                 TextFormField(
                   controller: _nameController,
@@ -517,6 +518,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
                 const SizedBox(height: 16),
+
                 // Email Field
                 TextFormField(
                   controller: _emailController,
@@ -543,6 +545,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
                 const SizedBox(height: 16),
+
                 // Password Field
                 TextFormField(
                   controller: _passwordController,
@@ -579,6 +582,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
                 const SizedBox(height: 16),
+
                 // Confirm Password Field
                 TextFormField(
                   controller: _confirmPasswordController,
@@ -616,6 +620,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
                 const SizedBox(height: 24),
+
                 // Sign Up Button
                 SizedBox(
                   height: 50,
@@ -648,6 +653,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
                 const SizedBox(height: 20),
+
                 // Divider
                 Row(
                   children: [
@@ -666,6 +672,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   ],
                 ),
                 const SizedBox(height: 20),
+
                 // Social Sign Up Buttons
                 Row(
                   children: [
@@ -692,6 +699,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                     ),
                     const SizedBox(width: 12),
+
                     // Apple Sign Up
                     Expanded(
                       child: OutlinedButton.icon(
@@ -711,6 +719,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   ],
                 ),
                 const SizedBox(height: 30),
+
                 // Sign In Link
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
